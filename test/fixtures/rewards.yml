@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bDate: 2016-08-17 10:35:00
+  eDate: 2016-08-17 10:35:00
+  bonus: 1.5
+  type: 
+  online: false
+
+two:
+  name: MyString
+  bDate: 2016-08-17 10:35:00
+  eDate: 2016-08-17 10:35:00
+  bonus: 1.5
+  type: 
+  online: false
