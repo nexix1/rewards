@@ -1,0 +1,8 @@
+<h1>this is expense tracker page</h1>
+
+<% @expense.each do |expense| %>
+	<div class="expense_wrapper">
+		<h2 class="date"><%= link_to expense.date, expense %></h2>
+
+
+<% end %>

@@ -1,0 +1,18 @@
+<!-- shows the expense that was submitted -->
+<div class="expense_table"> 
+	<h3>Date:</h3>
+	<p><%= @expense.date %></p>
+	<h3>Amount:</h3>
+	<p><%= @expense.amount %></p>
+	<h3>Payment Type:</h3>	
+	<p><%= @expense.payment %></p>
+	<h3>Category:</h3>	
+	<p><%= @expense.category %></p>
+	<h3>Description:</h3>	
+	<p><%= @expense.description %></p>
+</div>
+
+<!-- shows how long ago the expense was submitted -->
+<h4 class="date">
+	Submitted <%= time_ago_in_words(@expense.created_at) %>, on <%= @expense.created_at.strftime("%B %d, %Y") %>
+</h4>

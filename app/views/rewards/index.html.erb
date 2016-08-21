@@ -1,7 +1,25 @@
 <h1>Choose your card</h1>
 
+Today's Date: <%= Time.now.strftime("%m/%d/%Y") %>
 
+<%= form_tag(rewards_path, method: "get") do %>
 
+  <%= label_tag(:search, "Search for: ") %>
+  <%= select_tag(:search,  options_for_select(Reward.uniq.pluck(:purchase)), {include_blank: 'Choose a Purchase Category'}) %> 
+  <%= submit_tag "Search", :name => nil %>
+
+<% end %>
+
+<br>
+<hr>
+<br>
+
+<% @rewards.each do |reward| %>
+
+	You should use <strong><%= reward.name %></strong> card
+	<br>
+
+<% end %>	
 
 
 
