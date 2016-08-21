@@ -1,6 +1,15 @@
 <h1>new expense</h1>
 
 <%= form_for :expense, url: expenses_path do |f| %>
+	<% if @expense.errors.any? %> 
+		<div id="errors">
+			<h2><%= pluralize(@expense.errors.count, "error") %> prevented this expense from saving</h2>
+			<ul>
+				<% @expense.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %> 
+		</div>
+	<% end %>
 	<p>
 		<%= f.label :date %><br>
 		<%= f.text_field :date %>
