@@ -14,5 +14,8 @@
 
 <!-- shows how long ago the expense was submitted -->
 <h4 class="date">
-	Submitted <%= time_ago_in_words(@expense.created_at) %>, on <%= @expense.created_at.strftime("%B %d, %Y") %>
+	Submitted <%= time_ago_in_words(@expense.created_at) %> ago, on <%= @expense.created_at.strftime("%B %d, %Y") %>
 </h4>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %>
+<%= link_to 'Delete', expense_path(@expense), method: :delete, data: { confirm: "Are you sure?" } %>
