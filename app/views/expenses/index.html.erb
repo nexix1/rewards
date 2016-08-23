@@ -1,8 +1,29 @@
 <h1>this is expense tracker page</h1>
+ 	<table id="expense_table" class="display responsive no-wrap"> 
+ 		<thead>
+ 			<tr>
+ 				<th>Date</th>
+ 				<th>Amount</th>
+ 				<th>Payment Type</th>
+ 				<th>Category</th>
+ 				<th>Description</th>
+ 			</tr>
+ 		</thead>
+		<tbody>
+			<% @expense.each do |e| %>
+				<% if e.user == current_user %>
+					<tr>
+						<td><%= e.date.strftime("%m/%d/%Y") %></td>
+						<td><%= number_to_currency(e.amount) %></td>
+						<td><%= e.payment %></td>
+						<td><%= e.category %></td>
+						<td><%= link_to e.description, e %></td>
+						<!-- <td><%= link_to 'Edit', edit_expense_path(e) %></td>
+						<td><%= link_to 'Delete', expense_path(e), method: :delete, data: { confirm: "Are you sure?" } %></td> -->
+					</tr>
+				<% end %>
+			<% end %>
+		</tbody>
+	</table>
 
-<% @expense.each do |expense| %>
-	<div class="expense_wrapper">
-		<h2 class="date"><%= link_to expense.date, expense %></h2>
 
-
-<% end %>

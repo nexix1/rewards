@@ -5,8 +5,56 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script type="text/javascript" charset="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
+
+<div id="sidebar">
+	<div id="logo">
+		<%= link_to root_path do %>
+			<%= image_tag "logo.svg" %>
+		<% end %>
+	</div>
+	<ul>
+		<li class="category">Maximize Rewards</li>
+		<li><%= link_to "Rewards", rewards_path %></li>
+		<% if user_signed_in? %>
+			<li><%= link_to "Expense Tracker", expenses_path %></li>
+		<% end %>
+		<li>About</li>
+	</ul>
+	<% if !user_signed_in? %>
+		<p class="sign_in">Admin Login</p>
+	<% end %>
+</div>
+
+	<div id="main_content">
+		<div id="header">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			<p>Rewards</p>
+
+
+			<div class="buttons">
+				<button class="button"><%= link_to "Check Rewards", rewards_path %></button>
+
+				<% if user_signed_in? %>
+					<button class="button"><%= link_to "Expense Tracker", expenses_path %></button>
+					<button class="button"><%= link_to "New Transaction", new_expense_path %></button>
+					<button class="button"><%= link_to 'Log Out', destroy_user_session_path, :method => :delete, data: { confirm: "Are you sure you want to log out?" } %></button>
+					<button class="button"><%= link_to 'Edit User', edit_user_registration_path %></button>
+				<% else %>
+					<button class="button"><%= link_to 'Sign Up', new_user_registration_path %></button>
+					<button class="button"><%= link_to 'Log In', new_user_session_path %></button>
+				<% end %>
+			</div>
+		</div>
+	</div>
+
+	<% flash.each do |name, msg| %>
+		<%= content_tag(:div, msg, class: "alert") %>
+	<% end %>
 
 <%= yield %>
 
