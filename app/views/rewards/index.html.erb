@@ -10,16 +10,25 @@ Today's Date: <%= Time.now.strftime("%m/%d/%Y") %>
 
 <% end %>
 
-<br>
+<br>	
 <hr>
 <br>
 
-<% @rewards.each do |reward| %>
+<% if @rewards %>
+	<% if @rewards == [] %>
+		Uh oh, that's not category does not give you 5% cash back
+	<% else %>
+		<% @rewards.each do |reward| %>
+			
+			<br>
+			You should use <strong><%= reward.name %></strong> card
+			<br>
 
-	You should use <strong><%= reward.name %></strong> card
-	<br>
-
-<% end %>	
+		<% end %>
+	<% end %>
+<% else %>
+	Choose a category
+<% end %>
 
 
 

@@ -13,11 +13,11 @@
 			<% @expense.each do |e| %>
 				<% if e.user == current_user %>
 					<tr>
-						<td><%= e.date.strftime("%m/%d/%Y") %></td>
+						<td><%= link_to e.date.strftime("%m/%d/%Y"), e %></td>
 						<td><%= number_to_currency(e.amount) %></td>
 						<td><%= e.payment %></td>
 						<td><%= e.category %></td>
-						<td><%= link_to e.description, e %></td>
+						<td><%= e.description %></td>
 						<!-- <td><%= link_to 'Edit', edit_expense_path(e) %></td>
 						<td><%= link_to 'Delete', expense_path(e), method: :delete, data: { confirm: "Are you sure?" } %></td> -->
 					</tr>
