@@ -21,17 +21,17 @@
 
 	<p>
 		<%= f.label :payment %><br>
-		<%= f.text_field :payment %>
+		<%= f.select(:payment, options_for_select(["Credit Card", "Cash"]), {include_blank: "Choose Payment Option"}) %>
 	</p>
 
 	<p>
 		<%= f.label :category %><br>
-		<%= f.text_field :category %>
+		<%= f.select(:category, options_for_select(["Food & Dining", "Auto & Transport", "Bills & Utilities", "Entertainment", "Shopping", "Travel", "Misc Expenses", "Other"]), {include_blank: "Choose a Purchase Category"}) %>
 	</p>
 
 	<p>
 		<%= f.label :description %><br>
-		<%= f.text_field :description %>
+		<%= f.text_field :description, placeholder: "Describe the Expense" %>
 	</p>
 
 	<p>
@@ -39,3 +39,5 @@
 	</p>
 
 <% end %>
+
+

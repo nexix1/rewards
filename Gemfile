@@ -49,5 +49,7 @@ group :development do
   gem 'simple_form'
 
   gem 'devise'
+
+  gem 'gon'
 end
 
