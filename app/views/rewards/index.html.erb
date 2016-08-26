@@ -10,17 +10,16 @@ Today's Date: <%= Time.now.strftime("%m/%d/%Y") %>
 
 <% end %>
 
-<br>	
-<hr>
 <br>
 
 <% if @rewards %>
 	<% if @rewards == [] %>
-		Uh oh, that's not category does not give you 5% cash back
+		Uh oh, that's category does not give you 5% cash back at this time
 	<% else %>
 		<% @rewards.each do |reward| %>
 			
 			<br>
+			<%= image_tag "credit-card-red.svg", size: "150" %><br>
 			You should use <strong><%= reward.name %></strong> card and save 5%!
 			<br>
 

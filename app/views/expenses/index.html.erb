@@ -1,34 +1,45 @@
 <h1>this is expense tracker page</h1>
 
-<div id="pie_chart"></div>
+<!-- <div id="pie_chart"></div>
 
-<div id="bar_chart"></div>
+<div id="bar_chart"></div> -->
 
- 	<table id="expense_table" class="display responsive no-wrap"> 
- 		<thead>
- 			<tr>
- 				<th>Date</th>
- 				<th>Amount</th>
- 				<th>Payment Type</th>
- 				<th>Category</th>
- 				<th>Description</th>
- 			</tr>
- 		</thead>
-		<tbody>
-			<% @expense.each do |e| %>
-				<% if e.user == current_user %>
-					<tr>
-						<td><%= link_to e.date.strftime("%m/%d/%Y"), e %></td>
-						<td><%= number_to_currency(e.amount) %></td>
-						<td><%= e.payment %></td>
-						<td><%= e.category %></td>
-						<td><%= e.description %></td>
-						<!-- <td><%= link_to 'Edit', edit_expense_path(e) %></td>
-						<td><%= link_to 'Delete', expense_path(e), method: :delete, data: { confirm: "Are you sure?" } %></td> -->
-					</tr>
-				<% end %>
+
+
+<%= column_chart @expense.group(:category).sum(:amount) %>
+<%= pie_chart @expense.group(:category).sum(:amount) %>
+<%= bar_chart @expense.group(:date).sum(:amount) %>
+
+
+<table id="expense_table" class="display responsive no-wrap"> 
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Amount</th>
+			<th>Payment Type</th>
+			<th>Category</th>
+			<th>Description</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @expense.each do |e| %>
+			<% if e.user == current_user %>
+				<tr>
+					<td><%= link_to e.date.strftime("%m/%d/%Y"), e %></td>
+					<td><%= number_to_currency(e.amount) %></td>
+					<td><%= e.payment %></td>
+					<td><%= e.category %></td>
+					<td><%= e.description %></td>
+					<td><%= link_to image_tag('edit.svg', size: '15'), edit_expense_path(e) %> | <%= link_to image_tag('garbage.svg', size: '15'), expense_path(e), method: :delete, data: { confirm: "Are you sure?" } %></td>
+				</tr>
 			<% end %>
-		</tbody>
-	</table>
+		<% end %>
+	</tbody>
+</table>
+
+<script type="text/javascript"> 
+	var pie_chart_data = "<%= j @data_json %>"
+</script>
 
 
