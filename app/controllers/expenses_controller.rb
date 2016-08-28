@@ -2,7 +2,9 @@ class ExpensesController < ApplicationController
 	before_action :authenticate_user!
 
 	def index 
-		@expense = Expense.all
+		@expenses = Expense.all
+
+		@expenses_user = current_user.expenses.all
 	end
 
 	def new
