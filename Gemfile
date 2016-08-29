@@ -56,5 +56,8 @@ group :development do
   gem 'devise'
 
   gem 'chartkick'
+
+  gem 'animate.css-rails', '~> 3.2.0'
+
 end
 

@@ -16,12 +16,11 @@ class ExpensesController < ApplicationController
 	def create
 		# @expense = Expense.new(expense_params)
 
-		@expense = current_user.expenses.build(expense_params)
-
-		if @expense.save
+		@expenses = current_user.expenses.build(expense_params)
+		if @expenses.save
 			redirect_to expenses_path
 		else
-			render 'index'
+			redirect_to :back
 		end
 	end
 
@@ -51,7 +50,7 @@ class ExpensesController < ApplicationController
 	end
 
 	def after_sign_in_path_for(resource)
-  	expenses_path
+  	redirect_to expenses_path(current_user) 
 	end
 
 

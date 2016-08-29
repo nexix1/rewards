@@ -1,13 +1,13 @@
-<h1>this is expense tracker page</h1>
+<h1>Expense Tracker</h1>
 
 
 <!-- <div id="pie_chart"></div>
 
 <div id="bar_chart"></div> -->
 
-	<%= column_chart current_user.expenses.group(:category).sum(:amount) %>
+	<%= column_chart current_user.expenses.group(:date).sum(:amount) %>
 	<%= pie_chart current_user.expenses.group(:category).sum(:amount) %>
-	<%= bar_chart current_user.expenses.group(:date).sum(:amount) %>
+	<%= bar_chart current_user.expenses.group(:payment).sum(:amount) %>
 
 <table id="expense_table" class="display responsive no-wrap"> 
 	<thead>
@@ -21,7 +21,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @expenses.each do |e| %>
+		<% current_user.expenses.each do |e| %>
 			<% if e.user == current_user %>
 				<tr>
 					<td><%= link_to e.date.strftime("%m/%d/%Y"), e %></td>
@@ -36,8 +36,8 @@
 	</tbody>
 </table>
 
-<script type="text/javascript"> 
+<!-- <script type="text/javascript"> 
 	var pie_chart_data = "<%= j @data_json %>"
-</script>
+</script> -->
 
 
