@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rewards is an application that helps you put your hard earned cash back in your wallet. There are many credit cards that offer lucatrive cash back programs but it's hard to keep track of them. Rewards will let you know which credit card to use based on today's date and the type of purchase you want to make. Rewards also provides a manual expense tracker with charts to help you visualize where your money is going. 
 
-Things you may want to cover:
+Technologies used in this app:
 
-* Ruby version
+* Ruby on Rails
 
-* System dependencies
+* JavaScript/jQuery
 
-* Configuration
+* Datatables gem
 
-* Database creation
+* Google Charts
 
-* Database initialization
+* Chartkick gem
 
-* How to run the test suite
+* Devise gem
 
-* Services (job queues, cache servers, search engines, etc.)
+* Simple-form gem
 
-* Deployment instructions
+* Animate.css-rails gem
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Bootstrap theme from: Made by Thomas Park. Contact him at thomas@bootswatch.com.
+Code released under the MIT License.
+Based on Bootstrap. Icons from Font Awesome. Web fonts from Google.

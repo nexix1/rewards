@@ -20,7 +20,7 @@
 	<!-- check credit cards to purchase type and applicable date -->
 	<% if @rewards %>
 		<% if @rewards == [] %>
-			<div class="animated zoomIn">
+			<div class="animated fadeIn">
 			<!-- <div id="rewards_animation"> -->
 				<h3>Sorry!<br>
 				That category does not qualify<br>
@@ -30,15 +30,15 @@
 			<% @rewards.each do |reward| %>
 				<br>
 				<!-- <div id="rewards_animation"> -->
-				<div class="animated zoomInRight">
-					Yay! You should use <strong><%= reward.name %></strong><br>
-					card and get 5% cash back! <br>
+				<div class="animated fadeIn">
+					<h3>You should use <%= reward.name %><br>
+					card and get 5% cash back!</h3>
 					<%= image_tag "credit-card-red.svg", size: "300" %>
 				</div>
 			<% end %>
 		<% end %>
 	<% else %>
-		<div class="animated lightSpeedIn">
+		<div class="animated fadeIn">
 			<%= image_tag "wallet.svg", size: "300" %><br>
 		</div>
 	<% end %>
