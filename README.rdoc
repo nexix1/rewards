@@ -23,3 +23,15 @@ Technologies used in this app:
 * Bootstrap theme from: Made by Thomas Park. Contact him at thomas@bootswatch.com.
 Code released under the MIT License.
 Based on Bootstrap. Icons from Font Awesome. Web fonts from Google.
+
+Credit goes to my friend Joe Im, who inspired me to create this app. 
+
+Future plans: 
+
+* using D3.js for data visualization
+
+* Google Map API
+
+* Plaid API
+
+* React.js for datatables
